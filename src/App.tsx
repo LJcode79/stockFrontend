@@ -13,15 +13,23 @@ function App() {
   const [searchResult, setSearchResult] = useState<CompanySearch[]>([]);
   const [serverError, setServerError] = useState<string | null>(null);
 
-  const handleSearchChange = (e : any) => {
+  const handleSearchChange = (e : ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
-    const updatedPortfolio = [...portfolioValues, e.target[0].value]
-    setPortfolioValues(updatedPortfolio);
   };
 
-  const onPortfolioCreate = (e: SyntheticEvent) => {
+  const onPortfolioCreate = (e: any) => {
     e.preventDefault();
-    console.log(e);
+    const exists = portfolioValues.find((value) => value === e.target[0].value);
+    if(exists) return;
+    const updatedPortfolio = [...portfolioValues, e.target[0].value]
+    setPortfolioValues(updatedPortfolio);
+  }
+
+  const onPortfolioDelete = (e: any) => {
+    e.preventDefault
+    const removed = portfolioValues.filter((value) => {
+      return value !== e.target[0].value
+    })
   }
 
   const onSearchSubmit = async (e: SyntheticEvent) => {

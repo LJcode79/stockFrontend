@@ -1,10 +1,15 @@
 import React from 'react'
 
-type Props = {}
+type Props = {
+  portfolioValue: string;
+}
 
-const CardPortfolio = (props: Props) => {
+const CardPortfolio = ({portfolioValue}: Props) => {
   return (
-    <div>CardPortfolio</div>
+    <>
+      <h4>{portfolioValue}</h4>
+      <button>X</button>
+    </>
   )
 }
 

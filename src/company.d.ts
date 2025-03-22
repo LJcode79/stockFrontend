@@ -1,8 +1,11 @@
 export interface CompanyKeyMetrics {
+  returnOnEquityTTM: number;
+  debtToMarketCapTTM: number;
+  marketCap: number;
   revenuePerShareTTM: number;
   netIncomePerShareTTM: number;
   operatingCashFlowPerShareTTM: number;
-  freeCashFlowPerShareTTM: number;
+  freeCashFlowToEquityTTM: number;
   cashPerShareTTM: number;
   bookValuePerShareTTM: number;
   tangibleBookValuePerShareTTM: number;

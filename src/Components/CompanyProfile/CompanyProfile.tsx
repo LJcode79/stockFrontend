@@ -4,13 +4,14 @@ import { CompanyKeyMetrics } from "../../company";
 import RatioList from "../RatioList/RatioList";
 import Tile from "../Tile/Tile";
 import { getKeyMetrics } from "../api";
+import { v4 as uuidv4} from "uuid";
 
 type Props = {};
 
 const tableConfig = [
   {
     label: "Market Cap",
-    render: (company: CompanyKeyMetrics) => company.debtToMarketCapTTM,
+    render: (company: CompanyKeyMetrics) => company.marketCap,
     subTitle: "Total value of all a company's shares of stock",
   },
   {
@@ -21,7 +22,7 @@ const tableConfig = [
   },
   {
     label: "Return On Equity",
-    render: (company: CompanyKeyMetrics) => company.roeTTM,
+    render: (company: CompanyKeyMetrics) => company.returnOnEquityTTM,
     subTitle:
       "Return on equity is the measure of a company's net income divided by its shareholder's equity",
   },
@@ -33,36 +34,13 @@ const tableConfig = [
   },
   {
     label: "Free Cashflow Per Share",
-    render: (company: CompanyKeyMetrics) => company.freeCashFlowPerShareTTM,
+    render: (company: CompanyKeyMetrics) => company.freeCashFlowToEquityTTM,
     subTitle:
       "Return on assets is the measure of how effective a company is using its assets",
   },
   {
-    label: "Book Value Per Share TTM",
-    render: (company: CompanyKeyMetrics) => company.bookValuePerShareTTM,
-    subTitle:
-      "Book value per share indicates a firm's net asset value (total assets - total liabilities) on per share basis",
-  },
-  {
-    label: "Divdend Yield TTM",
-    render: (company: CompanyKeyMetrics) => company.dividendYieldTTM,
-    subTitle: "Shows how much a company pays each year relative to stock price",
-  },
-  {
-    label: "Capex Per Share TTM",
-    render: (company: CompanyKeyMetrics) => company.capexPerShareTTM,
-    subTitle:
-      "Capex is used by a company to aquire, upgrade, and maintain physical assets",
-  },
-  {
     label: "Graham Number",
     render: (company: CompanyKeyMetrics) => company.grahamNumberTTM,
-    subTitle:
-      "This is the upperbouind of the price range that a defensive investor should pay for a stock",
-  },
-  {
-    label: "PE Ratio",
-    render: (company: CompanyKeyMetrics) => company.peRatioTTM,
     subTitle:
       "This is the upperbouind of the price range that a defensive investor should pay for a stock",
   },
@@ -82,6 +60,7 @@ const CompanyProfile = (props: Props) => {
     <>
       {companyData ? (
         <>
+          {/* console.log(data) */}
           <RatioList config={tableConfig} data={companyData} />
         </>
       ) : (

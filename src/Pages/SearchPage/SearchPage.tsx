@@ -42,7 +42,7 @@ const SearchPage = (props: Props) => {
     } else if (Array.isArray(result.data)) {
       setSearchResult(result.data);
     }
-    console.log(searchResult);
+    // console.log(searchResult);
   };
   return (
     <div className="App">

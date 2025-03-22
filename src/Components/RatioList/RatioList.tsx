@@ -5,7 +5,7 @@ type Props = {
 };
 
 const RatioList = ({ config, data }: Props) => {
-  {console.log("Config: ", config, "Data: ", data)}
+  // {console.log("Config: ", config, "Data: ", data)}
   const renderedCells = config.map((row: any) => {
     return (
       <li className="py-6 sm:py-6" key={uuidv4()}>

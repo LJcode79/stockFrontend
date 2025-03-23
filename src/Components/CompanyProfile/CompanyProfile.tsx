@@ -5,6 +5,7 @@ import RatioList from "../RatioList/RatioList";
 import Tile from "../Tile/Tile";
 import { getKeyMetrics } from "../api";
 import { v4 as uuidv4} from "uuid";
+import Spinner from "../Spinner/Spinner";
 
 type Props = {};
 
@@ -64,7 +65,7 @@ const CompanyProfile = (props: Props) => {
           <RatioList config={tableConfig} data={companyData} />
         </>
       ) : (
-        <h1>No data found</h1>
+        <Spinner />
       )}
     </>
   );

@@ -6,6 +6,7 @@ import Tile from "../Tile/Tile";
 import { getKeyMetrics } from "../api";
 import { v4 as uuidv4} from "uuid";
 import Spinner from "../Spinner/Spinner";
+import StockComment from "../StockComment/StockComment";
 
 type Props = {};
 
@@ -63,6 +64,7 @@ const CompanyProfile = (props: Props) => {
         <>
           {/* console.log(data) */}
           <RatioList config={tableConfig} data={companyData} />
+          <StockComment stockSymbol={ticker} />
         </>
       ) : (
         <Spinner />
